@@ -1,4 +1,4 @@
-	from pseudonymizer import evaluator
+from pseudonymizer import evaluator
 import pandas as pd
 import unittest
 
