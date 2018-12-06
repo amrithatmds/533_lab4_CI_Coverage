@@ -1,4 +1,4 @@
-from pseudonymizer import evaluator
+	from pseudonymizer import evaluator
 import pandas as pd
 import unittest
 
@@ -24,7 +24,7 @@ class TestEvaluator(unittest.TestCase):
     def test_evaluator(self):
         
         # Run the testcase for the first test file
-        df = pd.read_csv("creditcard.csv")    # sample testfile 
+        df = pd.read_csv("psedonymizer_Test/creditcard.csv")    # sample testfile 
         quasis = ['DOB', 'postal_code', 'Sex']
         self.ldiv.setQuasiId(quasis)
         sensId = ['credit_security_code']
@@ -44,7 +44,7 @@ class TestEvaluator(unittest.TestCase):
     def test_evaluator2(self):
         
         # Run the testcase for the first test file
-        df = pd.read_csv("testDataset.csv")    # sample testfile 
+        df = pd.read_csv("psedonymizer_Test/testDataset.csv")    # sample testfile 
         quasis = ['DOB', 'postal_code']
         self.ldiv.setQuasiId(quasis)
         sensId = ['income']
