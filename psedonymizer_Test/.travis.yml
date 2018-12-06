@@ -3,5 +3,5 @@ python:
   - "3.5"
   - "3.6"
 # command to run tests
-script:
+script:  
   - python pseudonymizer_testsuite.py
