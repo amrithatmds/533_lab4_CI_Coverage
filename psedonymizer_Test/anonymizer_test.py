@@ -8,7 +8,7 @@ class TestAnonymizer(unittest.TestCase):
     
     def setUp(self):
         print ("Run the setUp for each testcase")
-        self.df = pd.read_csv("testDataset.csv")   # sample testfile 
+        self.df = pd.read_csv("psedonymizer_Test/testDataset.csv")   # sample testfile 
         self.classes = self.iden.suggest(self.df.columns)
         self.quasis = self.classes['qId']
         self.sensitives = self.classes["sensId"]
