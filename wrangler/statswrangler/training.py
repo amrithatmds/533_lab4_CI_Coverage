@@ -17,18 +17,24 @@ class TrainingData:
         self.dataframe = dataframe
         self.percentage = percentage
     def SplitTrain(self):
-        rows = len(self.dataframe)
-        train = round(rows*self.percentage) # the number of rows used in the training data
-        #test = rows-train # the number of rows used in the test data
-        data = self.dataframe
+        try:
+            try: 
+                rows = len(self.dataframe)
+            except: 
+                return print("Only takes pd.DataFrame")
+            try:     
+                train = round(rows*float(self.percentage)) # the number of rows used in the training data
+                #test = rows-train # the number of rows used in the test data
+            except: 
+                return print("Percentage is an integer or float")
+            data = self.dataframe
  
-        #drop = True, will keep its index without replacing it with a new index
-        df = data.sample(frac=1).reset_index(drop=True)
-        trainingdata = df[0:train]
-        testdata = df[train:rows]
+            #drop = True, will keep its index without replacing it with a new index
+            df = data.sample(frac=1).reset_index(drop=True)
+            trainingdata = df[0:train]
+            testdata = df[train:rows]
+            return (trainingdata, testdata)
         
-        
-        return (trainingdata, testdata)
-    
-    
-
+        except: 
+            return print("Splitting data error, please check input type")
+            
