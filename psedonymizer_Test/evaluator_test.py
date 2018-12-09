@@ -71,7 +71,7 @@ class TestEvaluator(unittest.TestCase):
     def test_evaluator_error2(self):
         
         # Run the testcase for the first test file
-        df = pd.read_csv("testDataset.csv")    # sample testfile 
+        df = pd.read_csv("psedonymizer_Test/testDataset.csv")    # sample testfile 
         quasis = ['DOB', 'postal_code']
         self.ldiv.setQuasiId(quasis)
         sensId = "not a list"
