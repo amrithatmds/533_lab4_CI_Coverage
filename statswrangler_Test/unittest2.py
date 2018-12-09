@@ -1,21 +1,11 @@
-
-# coding: utf-8
-
-# In[108]:
-
-
-import test2.training as tr
+import statswrangler.training as tr
 import pandas as pd
 import unittest
 from pandas.util.testing import assert_frame_equal
 
-
-#since it uses the .sample() function it is required to set seed or df.sample(random_state=1) to set seed as 1 
-#we will have to alter the module or else the test would fail 
-
-
-# In[109]:
-
+#since training.py uses the .sample() function it is required to set seed or df.sample(random_state=1) to set seed as 1
+#I have already modified the training.py module code so that it is df.sample(random_state=1)
+#or else it will always be checking a random result, which would result in a Fail 
 
 df0 = pd.read_csv("train.csv")
 df1 = df0[0:30] #dataframe (will only use a subset dataset too big)
@@ -50,20 +40,26 @@ class TestTraining(unittest.TestCase):
     def setUpClass(cls):
         print("setUpClass")
         
-    @classmethod
-    def tearDownClass(cls):
-        print('teardownClass')
+    
     def setUp(self):
+        self.together = tr.TrainingData(df1).SplitTrain()
         self.train1, self.test1 = tr.TrainingData(df1).SplitTrain()
         self.train2, self.test2 = tr.TrainingData(df2).SplitTrain()
         self.train3, self.test3 = tr.TrainingData(df2,0.8).SplitTrain()
         print('Set Up')
         
-    def tearDown(self):
-        print('Tear Down')
+    
 
     def test_SplitTrain(self): #test case
-        assert_frame_equal(self.train1, tr1) #test with pandas testing for dataframe
+        #check if the function SplitTrain() returns a tuple 
+        self.assertIs(type(self.together), type((2,2)) )
+        
+        #check if what is inside the tuple is a dataframe
+        self.assertIs(type(self.train1), type(df1) )
+        
+        #test with pandas testing for dataframe
+        #test each training and test set
+        assert_frame_equal(self.train1, tr1)
         assert_frame_equal(self.test1, tt1) 
         
         assert_frame_equal(self.train2, tr2) 
@@ -72,11 +68,10 @@ class TestTraining(unittest.TestCase):
         assert_frame_equal(self.train3, tr3) 
         assert_frame_equal(self.test3, tt3) 
         
+    def tearDown(self):
+        print('Tear Down')
+        
+    @classmethod
+    def tearDownClass(cls):
+        print('teardownClass')
 unittest.main(argv=[''], verbosity=2, exit=False)   
-
-
-# In[ ]:
-
-
-
-
