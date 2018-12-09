@@ -8,7 +8,7 @@ class TestAnonymizer(unittest.TestCase):
     
     def setUp(self):
         print ("Run the setUp for each testcase")
-        self.df = pd.read_csv("psedonymizer_Test/testDataset.csv")   # sample testfile 
+        self.df = pd.read_csv("testDataset.csv")   # sample testfile 
         self.classes = self.iden.suggest(self.df.columns)
         self.quasis = self.classes['qId']
         self.sensitives = self.classes["sensId"]
@@ -34,8 +34,23 @@ class TestAnonymizer(unittest.TestCase):
         self.assertNotIn('companies', self.quasis)
         self.assertNotIn('color', self.sensitives)
     
+    def test_anonymizer_error(self):
+        dfColumns = [1, 2, 3]
+        classes = self.iden.suggest(dfColumns)
+        self.assertEqual(classes, -1)
+        
     def test_kval(self):
         kval = self.iden.kcounter(self.df, self.quasis)
         self.assertEqual(kval, 3)
 
+    def test_kval_errors1(self):
+        self.quasis = [1, 2, 3] # set random value to quasis
+        kval = self.iden.kcounter(self.df, self.quasis)
+        self.assertEqual(kval, -1)
+            
+    def test_kval_errors2(self):
+        self.quasis = list() # set random value to quasis
+        kval = self.iden.kcounter(self.df, self.quasis)
+        self.assertEqual(kval, -1)
+        
 unittest.main(argv=[''], verbosity=2, exit=False)

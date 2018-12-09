@@ -24,7 +24,7 @@ class TestEvaluator(unittest.TestCase):
     def test_evaluator(self):
         
         # Run the testcase for the first test file
-        df = pd.read_csv("psedonymizer_Test/creditcard.csv")    # sample testfile 
+        df = pd.read_csv("creditcard.csv")    # sample testfile 
         quasis = ['DOB', 'postal_code', 'Sex']
         self.ldiv.setQuasiId(quasis)
         sensId = ['credit_security_code']
@@ -44,7 +44,7 @@ class TestEvaluator(unittest.TestCase):
     def test_evaluator2(self):
         
         # Run the testcase for the first test file
-        df = pd.read_csv("psedonymizer_Test/testDataset.csv")    # sample testfile 
+        df = pd.read_csv("testDataset.csv")    # sample testfile 
         quasis = ['DOB', 'postal_code']
         self.ldiv.setQuasiId(quasis)
         sensId = ['income']
@@ -61,5 +61,23 @@ class TestEvaluator(unittest.TestCase):
         self.assertNotIn('companies',setquasis)
         self.assertEqual(maxProb, 0.3333333333333333)
     
+    def test_evaluator_error1(self):
+        self.ldiv = None
+        try:
+            self.ldiv = evaluator.Ldiversity('l_diversity', 5)
+        except:
+            assertNotIsInstance(type(self.ldiv), evaluator.Ldiversity)
+            
+    def test_evaluator_error2(self):
+        
+        # Run the testcase for the first test file
+        df = pd.read_csv("testDataset.csv")    # sample testfile 
+        quasis = ['DOB', 'postal_code']
+        self.ldiv.setQuasiId(quasis)
+        sensId = "not a list"
 
-unittest.main(argv=[''], verbosity=2, exit=False)
+        self.ldiv.setSensitiveId(sensId)
+        maxProb = self.ldiv.ldivMaxProb(df, quasis, sensId)
+        self.assertEqual(maxProb, -1)
+            
+unittest.main(argv=[''], verbosity=3, exit=False)
