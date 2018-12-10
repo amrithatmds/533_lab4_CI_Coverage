@@ -2,7 +2,7 @@ import pandas as pd
 import numpy as np
 
 class Data: 
-    def __init__(self, series, dataframe):
+    def __init__(self, series,dataframe):
         self.series = series
         self.dataframe = dataframe
     #function that removes outliers in a dataframe based on the box plot 
@@ -29,8 +29,7 @@ class Data:
             #and the outliers themselves
             return (self.index, self.outliers)
         except: 
-            print("Can not find outliers")
-            return False
+            return print("Can not find outliers")
     
 class Dropped(Data):
     #threshold meaning the amount of outlier observations allowed to be dropped 
@@ -39,9 +38,8 @@ class Dropped(Data):
         self.threshold = threshold
 
     def DropOutliers(self):
-        try: 
-            Data.Outliers(self)
-        
+        Data.Outliers(self)
+        try:
             if len(self.index) <= self.threshold:
                 self.index =self.index
             else:
@@ -52,5 +50,5 @@ class Dropped(Data):
             #now drop the entire row based on the location of outliers in the index
             return df.drop(df.index[l])
         except:
-            print("Can not drop outliers")
-            return False
+            return print("Can not drop outliers")
+            

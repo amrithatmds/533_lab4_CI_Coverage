@@ -1,10 +1,10 @@
-import statswrangler.outlierdrop as od
+import statswrangler_Test.statswrangler.outlierdrop as od
 import pandas as pd
 
 import unittest
 from pandas.util.testing import assert_frame_equal #this has to be imported to check dataframes
 
-df = pd.read_csv("train.csv")
+df = pd.read_csv("statswrangler_Test/train.csv")
 
 #data cleaning for test case checking later
 
@@ -18,7 +18,7 @@ s2 = df["LotArea"] #series 2 using LotArea
 
 #nooutliers1 and nooutliers2 will be used in our check cases
 
-nooutliers1 = pd.read_csv("withnooutliers.csv", index_col = "Unnamed: 0")
+nooutliers1 = pd.read_csv("statswrangler_Test/withnooutliers.csv", index_col = "Unnamed: 0")
 #this dataset has already been cleaned so that outliers in SalePrice columnn have been removed
 nooutliers1 = nooutliers1.drop("PoolQC", axis =1) #remove the PoolQC column since mostly NaN's
 
@@ -26,7 +26,7 @@ nooutliers1 = nooutliers1.drop("PoolQC", axis =1) #remove the PoolQC column sinc
 #nooutliers2 will refer to the testcase where threshold is 2
 #this only removes 2 out of the 3 outliers in the dataset
 #this dataset has the outliers in SalePrice columnn removed
-nooutliers2 = pd.read_csv("withnooutliers2.csv",index_col = "Unnamed: 0")
+nooutliers2 = pd.read_csv("statswrangler_Test/withnooutliers2.csv",index_col = "Unnamed: 0")
 
 class TestOutlierdrop(unittest.TestCase):
     @classmethod

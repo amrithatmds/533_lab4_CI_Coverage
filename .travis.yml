@@ -1,0 +1,9 @@
+language: python
+python:
+  - "3.6"
+install:
+  - pip install pandas
+# command to run tests
+script:
+  - export PYTHONPATH=$PYTHONPATH:$(pwd)
+  - python statswrangler_Test/testsuite.py
