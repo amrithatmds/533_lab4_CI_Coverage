@@ -1,0 +1,43 @@
+Set up the class once for running all the tests
+Run the setUp for each testcase
+Completed running test_1 for the Anonymizer class
+Run the setUp for each testcase
+Check column name data types, they have to be strings
+Completed running test_2 for the Anonymizer class
+Run the setUp for each testcase
+Completed running test_3 for the Anonymizer class
+Run the setUp for each testcase
+Please check the dataframe, the columns you specified are not in the dataframe
+Completed running test_4 for the Anonymizer class
+Run the setUp for each testcase
+Please pass a valid set of column values to kcounter function
+Completed running test_5 for the Anonymizer class
+Completed running all testcases for the Anonymizer class
+Set up the class once for running all the tests
+Run the setUp for each testcase
+Completed running test_6 for the Anonymizer class
+Run the setUp for each testcase
+Check column name data types, they have to be strings
+Completed running test_7 for the Anonymizer class
+Run the setUp for each testcase
+Completed running test_8 for the Anonymizer class
+Run the setUp for each testcase
+Please check the dataframe, the columns you specified are not in the dataframe
+Completed running test_9 for the Anonymizer class
+Run the setUp for each testcase
+Please pass a valid set of column values to kcounter function
+Completed running test_10 for the Anonymizer class
+Completed running all testcases for the Anonymizer class
+Set up the once for running all the tests
+Run the setUp for each testcase
+Completed running test_1 for the Evaluator class
+Run the setUp for each testcase
+Completed running test_2 for the Evaluator class
+Run the setUp for each testcase
+Object cannot be created, please pass string for func parameter
+Completed running test_3 for the Evaluator class
+Run the setUp for each testcase
+The qcols and scolumns both need to be lists
+Completed running test_4 for the Evaluator class
+Completed running all testcases for the Evaluator class
+<unittest.runner.TextTestResult run=9 errors=0 failures=0>
