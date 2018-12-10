@@ -6,5 +6,4 @@ install:
 # command to run tests
 script:
   - export PYTHONPATH=$PYTHONPATH:$(pwd)
-  - python psedonymizer_Test/pseudonymizer_testsuite.py
   - python statswrangler_Test/testsuite.py
