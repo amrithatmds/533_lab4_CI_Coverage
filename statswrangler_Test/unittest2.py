@@ -7,7 +7,7 @@ from pandas.util.testing import assert_frame_equal
 #I have already modified the training.py module code so that it is df.sample(random_state=1)
 #or else it will always be checking a random result, which would result in a Fail 
 
-df0 = pd.read_csv("statswranger_Test/train.csv")
+df0 = pd.read_csv("statswrangler_Test/train.csv")
 df1 = df0[0:30] #dataframe (will only use a subset dataset too big)
 
 
@@ -22,14 +22,14 @@ df2 = df2.drop("Alley", axis = 1)
 df2 = df2.drop("MiscFeature", axis = 1)
 
 #testing data for the test class
-tr1 = pd.read_csv("statswranger_Test/train1.csv", index_col="Unnamed: 0")
+tr1 = pd.read_csv("statswrangler_Test/train1.csv", index_col="Unnamed: 0")
 tt1 = pd.read_csv("statswranger_Test/test1.csv", index_col="Unnamed: 0")
 
-tr2 = pd.read_csv("statswranger_Test/train2.csv", index_col="Unnamed: 0")
-tt2 = pd.read_csv("statswranger_Test/test2.csv", index_col="Unnamed: 0")
+tr2 = pd.read_csv("statswrangler_Test/train2.csv", index_col="Unnamed: 0")
+tt2 = pd.read_csv("statswrangler_Test/test2.csv", index_col="Unnamed: 0")
 
-tr3 = pd.read_csv("statswranger_Test/train3.csv", index_col="Unnamed: 0")
-tt3 = pd.read_csv("statswranger_Test/test3.csv", index_col="Unnamed: 0")
+tr3 = pd.read_csv("statswrangler_Test/train3.csv", index_col="Unnamed: 0")
+tt3 = pd.read_csv("statswrangler_Test/test3.csv", index_col="Unnamed: 0")
 
 
 # In[110]:
