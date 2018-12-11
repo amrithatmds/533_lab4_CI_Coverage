@@ -1,4 +1,4 @@
-import statswrangler_Test.statswrangler.training as tr
+import statswrangler.training as tr
 import pandas as pd
 import unittest
 from pandas.util.testing import assert_frame_equal
