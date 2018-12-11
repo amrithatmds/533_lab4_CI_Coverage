@@ -1,9 +1,6 @@
-try: 
-    import pandas as pd
-    import numpy as np
-    
-except Import Error:
-    return print("Message: Import Error")
+
+import pandas as pd
+import numpy as np
 
 class Data: 
     def __init__(self, series,dataframe):
@@ -48,11 +45,11 @@ class Dropped(Data):
         try:
             if len(self.index) <= self.threshold:
                 self.index =self.index
-    
-        else:
-            self.index = self.index[0:self.threshold]
+            else:
+                self.index = self.index[0:self.threshold]
         except:
-            return print("Message: Threshold paramter type error)
+            return print("Message: Threshold paramter type error")
+                         
         try:            
             df = self.dataframe 
             l = self.index
@@ -60,4 +57,3 @@ class Dropped(Data):
             return df.drop(df.index[l])
         except:
             return print("Index not in dataframe, can not drop outliers")
-            
