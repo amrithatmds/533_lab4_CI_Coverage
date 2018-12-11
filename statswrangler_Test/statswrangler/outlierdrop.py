@@ -32,7 +32,7 @@ class Data:
             #and the outliers themselves
             return (self.index, self.outliers)
         except: 
-            return print("Message: Please use correct parameters, Can not find outliers")
+            return ("Message: Please use correct parameters, Can not find outliers")
     
 class Dropped(Data):
     #threshold meaning the amount of outlier observations allowed to be dropped 

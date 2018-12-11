@@ -39,7 +39,7 @@ class TestOutlierdrop(unittest.TestCase):
         self.d3 = od.Dropped(s1,df)
         self.d4 = od.Dropped(s2,df)
         self.d5 = od.Dropped(s1,df, threshold = 2) #with threshold = 2
-        
+        self.d6 = od.Dropped(["sdf"],df)
         self.a1, self.b1 = self.d1.Outliers() 
         
         
@@ -59,7 +59,7 @@ class TestOutlierdrop(unittest.TestCase):
         #check for equal
         self.assertEqual(self.d1.Outliers(), ([11, 53, 58], [345000, 385000, 438780])) 
         self.assertEqual(self.d2.Outliers(), ([41, 53, 66, 75], [16905, 50271, 19900, 1596]))
-        
+        self.assertEqual( self.d6.Outliers(), "Message: Please use correct parameters, Can not find outliers")
         #check outliers in the series if they match the index
         for i in self.a1:
             self.assertIn(s1[i], self.b1)
