@@ -23,7 +23,7 @@ df2 = df2.drop("MiscFeature", axis = 1)
 
 #testing data for the test class
 tr1 = pd.read_csv("statswrangler_Test/train1.csv", index_col="Unnamed: 0")
-tt1 = pd.read_csv("statswranger_Test/test1.csv", index_col="Unnamed: 0")
+tt1 = pd.read_csv("statswrangler_Test/test1.csv", index_col="Unnamed: 0")
 
 tr2 = pd.read_csv("statswrangler_Test/train2.csv", index_col="Unnamed: 0")
 tt2 = pd.read_csv("statswrangler_Test/test2.csv", index_col="Unnamed: 0")
