@@ -18,9 +18,13 @@ class AttrIdentifier:
         sensitiveId = self.getSensitiveId()
     
         for name in colNames:
-            if str(name).lower() in [x.lower() for x in quasiId]: # from the tuple take each item and convert it to lowercase and compare with the string
-                qId.append(name)
-
+            try: # this is just for error-handling demonstration, the type can be handled in the class
+                if name.lower() in [x.lower() for x in quasiId]: # from the tuple take each item and convert it to lowercase and compare with the string
+                    qId.append(name)
+            except:
+                print ("Check column name data types, they have to be strings")
+                return -1
+            
         for name in colNames:
             if str(name).lower() in [x.lower() for x in sensitiveId]:
                 sensId.append(name)
@@ -55,7 +59,15 @@ class Anonymizer(AttrIdentifier):
     def kcounter(self, df, qcolumns):
         df = df
         qcols = qcolumns
-        df = df[qcols]
-        df = df.sort_values(qcols)
-        k = df.groupby(qcols).size().min()
+        try:
+            df = df[qcols]
+        except:
+            print ("Please check the dataframe, the columns you specified are not in the dataframe")
+            return -1
+        try:
+            df = df.sort_values(qcols)
+            k = df.groupby(qcols).size().min()
+        except:
+            print ("Please pass a valid set of column values to kcounter function")
+            return -1
         return k

@@ -1,6 +1,9 @@
 # 533_Lab4_CI_Coverage
 Python test module for Chi Wang and Amrith Anand
-  
-statswrangler_Test - contains changes for Lab3 for the statswrangler package. The folder contains jupyter notebook that contains testmodules for both the modules under statswrangler package plus the suite that invokes both the testmodules. The folder is self-contained and the modules that are tested are also includes in the folder  
-  
-Psedonymizer_Test - contains changes for Lab3 for the pseudonymizer package. The folder contains jupyter notebook that contains testmodules for both the modules under psedonymizer package plus the suite that invokes both the testmodules. The folder is self-contained and the modules that are tested are also includes in the folder  
+
+## Structure of the folder:  
+1. Coverage screenshots - contains the screenshots	for test coverage for both the subpackages
+2. psedonymizer_Test - contains the subpackage, it's test modules, testcases, testsuite, testfiles, python notebook used for testing, results of the test and timecapture of the build completed in travis.  
+3. statswrangler_Test - contains the subpackage, it's test modules, testcases, testfiles, python notebook used for testing, and timecapture of the build completed in travis.  
+4. wrangler - the package we submitted in the earlier lab (including this just for reference)
+5. merge_gitHistory - githuv record the activities done in this repo  

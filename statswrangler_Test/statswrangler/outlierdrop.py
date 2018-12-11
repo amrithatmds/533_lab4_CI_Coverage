@@ -57,5 +57,3 @@ class Dropped(Data):
             return df.drop(df.index[l])
         except:
             return print("Index not in dataframe, can not drop outliers")
-            
-
