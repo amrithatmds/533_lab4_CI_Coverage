@@ -1,4 +1,4 @@
-import statswrangler_Test.statswrangler.outlierdrop as od
+import statswrangler.outlierdrop as od
 import pandas as pd
 
 import unittest
