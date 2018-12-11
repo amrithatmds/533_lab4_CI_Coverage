@@ -48,7 +48,7 @@ class Dropped(Data):
             else:
                 self.index = self.index[0:self.threshold]
         except:
-            return print("Message: Threshold paramter type error")
+            return ("Message: Threshold paramter type error")
                          
         try:            
             df = self.dataframe 
@@ -56,4 +56,4 @@ class Dropped(Data):
 
             return df.drop(df.index[l])
         except:
-            return print("Index not in dataframe, can not drop outliers")
+            return ("Index not in dataframe, can not drop outliers")
