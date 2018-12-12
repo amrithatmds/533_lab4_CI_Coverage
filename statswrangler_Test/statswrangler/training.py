@@ -19,17 +19,17 @@ class TrainingData:
                 rows = len(self.dataframe)
                 train = round(rows*self.percentage)
             except:
-                return ("Message: Attribute error, please give correct parameters")
+                print ("Message: Attribute error, please give correct parameters")
+                return None
             data = self.dataframe
             
             #drop = True, will keep its index without replacing it with a new index
             df = data.sample(frac=1, random_state=1).reset_index(drop=True)
-            try: 
-                trainingdata = df[0:train]
-                testdata = df[train:rows]
-                return (trainingdata, testdata)
-            except:
-                return ("Message: Index Error, please check inputs")
+            trainingdata = df[0:train]
+            testdata = df[train:rows]
+            return (trainingdata, testdata)
+ 
         except:
-            return("Message: Can not split dataset")
+            print("Message: Can not split dataset")
+            return None
 
