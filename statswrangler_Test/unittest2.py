@@ -53,8 +53,8 @@ class TestTraining(unittest.TestCase):
     
 
     def test_SplitTrain(self): #test case
-        self.assertEqual(self.t4,("Message: Attribute error, please give correct parameters"))
-        self.assertEqual(self.t5,("Message: Can not split dataset"))
+        self.assertEqual(self.t4,None)
+        self.assertEqual(self.t5,None)
         #check if the function SplitTrain() returns a tuple 
         self.assertIs(type(self.together), type((2,2)) )
         

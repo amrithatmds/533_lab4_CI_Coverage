@@ -32,7 +32,8 @@ class Data:
             #and the outliers themselves
             return (self.index, self.outliers)
         except: 
-            return ("Message: Please use correct parameters, Can not find outliers")
+            print ("Message: Please use correct parameters, Can not find outliers")
+            return None
     
 class Dropped(Data):
     #threshold meaning the amount of outlier observations allowed to be dropped 
@@ -48,7 +49,8 @@ class Dropped(Data):
             else:
                 self.index = self.index[0:self.threshold]
         except:
-            return ("Message: Threshold paramter type error")
+            print ("Message: Threshold paramter type error")
+            return None
                          
         try:            
             df = self.dataframe 
@@ -56,4 +58,5 @@ class Dropped(Data):
 
             return df.drop(df.index[l])
         except:
-            return ("Index not in dataframe, can not drop outliers")
+            print ("Index not in dataframe, can not drop outliers")
+            return None
